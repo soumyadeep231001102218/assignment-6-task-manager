@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route, Link, useNavigate, useParams, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Route, Link, useNavigate, useParams, Navigate, useLocation, Outlet } from 'react-router-dom';
 import './App.css';
 
 // Initial Mock Data
@@ -90,7 +90,7 @@ function ProtectedRoute({ isAuthenticated, children }) {
   if (!isAuthenticated) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
-  return <import('react-router-dom').Outlet />;
+  return <Outlet />;
 }
 
 function Sidebar({ setIsAuthenticated }) {
